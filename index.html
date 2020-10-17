@@ -1,15 +1,381 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>labo86 - Jugando revolucionaremos el Mundo</title>
-	<meta name="google-site-verification" content="69xhcXLOxzjnlw3dcePR-BToDsSJulWhEEFTieBWOj4" />
-</head>
-<body style="text-align:center">
+            <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" href="/images/logo/logo32x32.png" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+            <title>LABO86</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+<style>
 
-	<h1>LABO<span style="color:red">86</span></h1>
-	<h2>Jugando revolucionaremos el MUNDO</h2>
-        <img src="B072.svg">
+@keyframes brain-appear {
+    0%   {opacity:0; transform: translateY(25%) scale(0.97);}
+    100% {opacity:1; transform: translateY(25%) scale(0.97);}
+}
+
+@keyframes brain-down {
+    0%   {opacity:1; transform: translateY(25%) scale(0.97);}
+    100% {opacity:1; transform: translateY(75%) scale(0.97);}
+}
+
+@keyframes brain-pulse {
+    0%   {opacity:1; transform: translateY(75%) scale(0.97);}
+    100% {opacity:1; transform: translateY(75%) scale(1);}
+}
+
+@keyframes logo-appear {
+    0%  {opacity:0; transform: translateY(40%);}
+    100% {opacity:1; transform: translateY(20%);}
+}
+
+@keyframes title-appear {
+    0%   {opacity:0; transform: scale(1.05);}
+    100% {opacity:1; transform: scale(1);)}
+}
+
+@keyframes title-pulse {
+    0%   {opacity:1;}
+    100% {opacity:0.7;}
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+}
+
+#main {
+    position: relative;
+    width: 100vmin;
+    height: 100vmin;
+    margin: auto;
+}
+
+#main > * {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.main-anim .brain {
+    animation:
+            brain-appear 1.0s ease-in-out 0s,
+            brain-down 1.5s ease-in-out 1.0s,
+            brain-pulse 3s ease-in-out 2.5s alternate infinite;
+}
+
+.main-anim .logo {
+    animation: logo-appear 1.5s ease-in-out 2.0s normal forwards;
+}
+
+.main-anim .title {
+    animation:
+            title-appear 2.0s ease-in-out 3.5s,
+            title-pulse 2.0s ease-in-out 5.5s alternate infinite;
+}
+
+.jumbo-title {
+
+}
+
+.brain {
+    opacity:0;
+    text-align:center;
+}
+
+.gradient-white {
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 25%, rgba(255,255,240,0) 100%);
+}
+
+.logo {
+    opacity:0;
+    text-align:center;
+}
+
+.title {
+    margin-top: 10vmin;
+    font-size:6vmin;
+    opacity:0;
+}
+
+#title-1 {
+
+    text-align: right;
+}
+
+#title-2 {
+    text-align: left;
+}
+
+#title-3 {
+    text-align: right;
+}
+
+#logo-image {
+    vertical-align: -3.2vmin;
+    border-style: none;
+    margin-left: 1vmin;
+}
+
+.jumbo-title {
+    margin-top: 28vw;
+    margin-bottom: 20vw;
+}
+
+.jumbo-title > * {
+    transform: scaleY(0);
+}
+
+.jumbo-title > :nth-child(1) {
+    font-size: 7vw;
+    line-height: 7vw;
+    transition: transform 1s;
+}
+
+.jumbo-title > :nth-child(2) {
+    font-size: 14vw;
+    line-height: 14vw;
+    transition: transform 1.2s ease 0.8s;
+}
+
+.jumbo-title-anim > * {
+    transform: scaleY(1);
+}
+
+.appear {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.appear-anim {
+    opacity: 1;
+}
+
+.concept-par {
+    font-size: 3vw;
+    line-height: 7vw;
+}
+
+.half-container {
+    width:50%;
+}
+
+
+@media ( max-width: 500px ) {
+    .concept-par {
+        font-size: 1em;
+        line-height: 2.3em;
+
+    }
+
+    .half-container {
+        width:100%;
+    }
+}
+</style>
+</head>
+<body>
+    <div id="main">
+    <canvas id="lines"></canvas>
+    <div class="gradient-white"></div>
+    <div class="logo">
+        <div>
+            <span style="font-size:10vmin">LABO</span>
+            <img id="logo-image" width="17%" data-src="/images/logo.png">
+        </div>
+        <h1 class="title">Potenciando al <span style="white-space: nowrap">Ser Humano</span></h1>
+    </div>
+    <div class="brain">
+        <img id="brain-image" width="75%" data-src="/images/brain.png">
+    </div>
+</div>
+<div style="margin-top:75vmin; padding:1em">
+
+    <div>No esperes resultados diferentes si siempre haces lo mismo</div>
+
+
+    <p>Lo más valioso es nuestra mente</p>
+
+    <h1>Porque el ser humano es primero</h1>
+    <p>Nos basamos en conocimiento académico y tratamos de validar nuestras propuestas a nivel académico (paper sobre emociones)</p>
+    <p>El ser humano tiene el potencial de ser el ente transformador por excelencia</p>
+    <p>Somos los únicos que pensamios en colonizar nuevos mundos y buscar nuevas dimensiones</p>
+
+    <p>Soluciones innovadoras a los problemas del día a día. (SOLUCIONES)</p>
+    <p>Encontrar el balance entre tecnología y arte, ideas y creencias, razones y emociones</p>
+    <p>Podemos usar la tacnologia para liberar el potencial de las personas.</p>
+    <p>Necesitamos un nuevo renacimiento, con personas llenas en espiritu</p>
+    <p>Eficiencia Mayor beneficio por menor esfuerzo</p>
+    <p>Intentamos hacer las cosas diferentes</p>
+    <p>Gestión afectiva (FILOG), ergonomía cognitiva (MIND PRINT, TORNEO, PUBLICAT), creatividad concreta(MIND PRINT, TORNEO)</p>
+</div>
+<div style="padding:10vw">
+    <h1 id="title-1" class="jumbo-title" data-anim="jumbo-title-anim">
+        <div>Creatividad</div>
+        <div>Concreta</div>
+    </h1>
+    <div class="appear" style="display:flex;justify-content:right" data-anim="appear-anim">
+        <div class="half-container">
+            <p class="concept-par">Herramientas y sistema para la toma de decisión y convergencia de ideas (TORNEO)</p>
+        </div>
+    </div>
+
+    <h1 id="title-2" class="jumbo-title" data-anim="jumbo-title-anim">
+        <div>Productividad</div>
+        <div>Afectiva</div>
+    </h1>
+    <div class="appear" data-anim="appear-anim">
+        <div class="half-container">
+            <p class="concept-par">Exploramos nuevas formas de productividad de personas y equipos basadas en información emocional (FILOG, MINDPRINT)</p>
+        </div>
+    </div>
+
+    <h1 id="title-3" class="jumbo-title" data-anim="jumbo-title-anim">
+        <div>Ergonomía</div>
+        <div>Cognitiva</div>
+    </h1>
+    <div class="appear" style="display:flex;justify-content:right" data-anim="appear-anim">
+        <div class="half-container">
+            <p class="concept-par">Nuestro sistemas estan hechos papara las personas y no las personas para lo sistemas. Recomendacional</p>
+            <p>Hacemos concreto lo subjetivo (MINDPRINT, FILOG)</p>
+            <p>Publicat</p>
+        </div>
+    </div>
+</div>
+<script>
+    let canvas = new class {
+        constructor() {
+            this.canvas =  document.getElementById('lines');
+            this.ctx = this.canvas.getContext('2d');
+            this.number_elements = 25;
+            this.size = 200;
+            this.element_list = [];
+            this.gradient = this.createGradient();
+
+            this.canvas.height = this.size;
+            this.canvas.width = this.size;
+        }
+
+        createGradient() {
+            let height = this.size;
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            let grd = ctx.createLinearGradient(0,0, 0, height);
+            grd.addColorStop(1, "rgba(0,0,0,0)");
+            grd.addColorStop(0, "rgba(0,0,0,0.2)");
+
+            canvas.width = 1;
+            canvas.height = 200;
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
+            ctx.fillRect(0, 0, 1, height);
+
+            return canvas;
+        }
+
+        initRain() {
+            let size = this.size;
+            for (let i = 0; i < this.number_elements; i++) {
+
+                let speed = this.random(1, 5);
+
+                this.element_list.push({
+                    x: this.random(0, size),
+                    y: size + this.random(0, size),
+                    length: Math.floor(speed * size / 4 ),
+                    opacity: Math.random() * 0.2,
+                    speed: speed
+                });
+            }
+        }
+
+        update() {
+            let size = this.size;
+            let ctx = this.ctx;
+            ctx.clearRect(0, 0, size, size);
+
+            for (let line of this.element_list ) {
+                this.updateLine(line);
+            }
+        }
+
+        updateLine(line) {
+            let ctx = this.ctx;
+            let size = this.size;
+            if (line.y + line.length <= 0) {
+                line.x = this.random(0, size),
+                line.y = size;
+                line.speed = this.random(1, 3);
+                line.length = Math.floor(line.speed * size / 4 )
+            } else {
+                line.y -= line.speed;
+            }
+            ctx.drawImage(this.gradient, line.x, line.y, 1, line.length);
+        }
+
+        random(min, max) {
+            return Math.random() * (max - min + 1) + min;
+        }
+
+        start() {
+            canvas.initRain();
+            let self = this;
+            let loop = function() {
+                self.update();
+                requestAnimationFrame(loop);
+            };
+            loop();
+        }
+    };
+
+
+let image_loaded = 0;
+
+let image_1 = document.getElementById('brain-image');
+let image_2 = document.getElementById('logo-image');
+image_1.addEventListener('load', function() {
+    image_loaded++;
+    play_animation();
+});
+image_2.addEventListener('load', function() {
+    image_loaded++;
+    play_animation();
+});
+image_1.src = image_1.getAttribute('data-src');
+image_2.src = image_2.getAttribute('data-src');
+
+
+function play_animation() {
+    if ( image_loaded < 2 ) return;
+    document.getElementById('main').classList.add('main-anim');
+    setTimeout(function() {
+        canvas.start();
+    }, 1200);
+}
+
+function observeView(element) {
+    let observer = new IntersectionObserver(function(entries) {
+        for ( let entry of entries ) {
+            if ( entry.isIntersecting === true ) {
+                let anim = entry.target.getAttribute('data-anim');
+                entry.target.classList.add(anim);
+            }
+        }
+    }, { threshold: [1] });
+    observer.observe(element);
+    return observer;
+}
+for ( let element of document.querySelectorAll('.appear') ) {
+    observeView(element);
+}
+
+
+observeView(document.querySelector('#title-1'));
+observeView(document.querySelector('#title-2'));
+observeView(document.querySelector('#title-3'));
+
+</script>
 </body>
 </html>
