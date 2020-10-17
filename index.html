@@ -6,7 +6,6 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" href="/images/logo/logo32x32.png" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
             <title>LABO86</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
 <style>
@@ -41,21 +40,76 @@
     100% {opacity:0.7;}
 }
 
+@keyframes team-image {
+    0%   {opacity:0; transform: translateY(0%);}
+    10%  {opacity:1;}
+    50%  {opacity:1;}
+    60%  {opacity:0; transform: translateY(-3%);)}
+    100% {opacity:0;}
+}
+
+.team-image {
+    position:relative;
+    width: 57%;
+}
+
+.team-image > * {
+    position:absolute;
+    width: 100%;
+    opacity:0;
+    animation: team-image 10s ease 0s normal infinite;
+}
+
+.team-image > :nth-child(1) {
+
+    animation-delay: 5s;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@media ( max-width: 750px ) {
+
+    .team-image {
+        width:100%;
+        height:60vw;
+    }
+
+
+    .team-member {
+        flex-direction:column;
+        justify-content: center;
+    }
+}
+
+
 body {
     font-family: 'Crimson Text', serif;
+    overflow-x:hidden;
+    font-weight: 400;
+}
+
+h1, h2 ,h3 {
+    font-weight: 500;
 }
 
 #main {
     position: relative;
     width: 100vmin;
     height: 100vmin;
-    margin: auto;
+    margin: auto auto 30vmin;
 }
 
 #main > * {
     width: 100%;
     height: 100%;
     position: absolute;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 .main-anim .brain {
@@ -115,12 +169,11 @@ body {
 #logo-image {
     vertical-align: -3.2vmin;
     border-style: none;
-    margin-left: 1vmin;
 }
 
 .jumbo-title {
     margin-top: 28vw;
-    margin-bottom: 20vw;
+    margin-bottom: 10vw;
 }
 
 .jumbo-title > * {
@@ -128,14 +181,14 @@ body {
 }
 
 .jumbo-title > :nth-child(1) {
-    font-size: 7vw;
-    line-height: 7vw;
+    font-size: max(24px, 7vw);
+    line-height: 1em;
     transition: transform 1s;
 }
 
 .jumbo-title > :nth-child(2) {
-    font-size: 14vw;
-    line-height: 14vw;
+    font-size: max(48px, 14vw);
+    line-height: 1em;
     transition: transform 1.2s ease 0.8s;
 }
 
@@ -152,22 +205,224 @@ body {
     opacity: 1;
 }
 
-.concept-par {
-    font-size: 3vw;
-    line-height: 7vw;
+.padding-box {
+    padding:max(1em,10vw);
 }
 
 .half-container {
     width:50%;
 }
 
+.sub-line {
+    width:100%;
+    background-color: black;
+    height: 1px;
+}
+
+.section-title {
+    text-align: center;
+    width: min(100vmin, 100%);
+    margin: auto;
+}
+
+.section-title h2 {
+    font-size: max(25px, 3vw);
+    font-style:italic;
+    margin-bottom: 1.5em;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+}
+
+.section-title .sub-line {
+    transform: scaleX(0);
+    transition: transform 1s ease 0.5s;
+    margin-bottom: 3em;
+}
+
+.section-title-anim  h2 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-title-anim  .sub-line {
+    transform: scaleX(1);
+}
+
+.important {
+    font-size: max(1.4em,2.5vw);
+    line-height: 2em;
+    text-align:center;
+}
+
+.concept-par {
+    font-size: max(1em,2vw);
+    line-height: 2em;
+}
+
+
+
+.section-description {
+    font-size: max(1.2em,2.0vw);
+    line-height: 2em;
+    text-align:center;
+}
+
+.lead-par {
+    margin-bottom: 2em;
+}
+
+.lead-par em {
+    font-weight: bold;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+a:active {
+    color:black;
+}
+
+
+.important em {
+    font-weight: bold;
+}
+
+.important-anim  > :nth-child(1) {
+    opacity: 1;
+
+}
+
+.important-anim  > :nth-child(2) {
+    opacity: 1;
+    transition-delay:1s;
+}
+
+.important-anim  > :nth-child(3) {
+    opacity: 1;
+    transition-delay:2s;
+}
+
+.important-anim  > :nth-child(4) {
+    opacity: 1;
+    transition-delay:3s;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#creativity {
+    width: 100vw;
+    height: 100vw;
+}
+
+#creativity > div {
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+#creativity > div > div {
+    position:absolute;
+    width:100%;
+    height:100%
+}
+
+#creativity > div > div > div {
+    position:absolute;
+    top: 45%;
+    left: 45%;
+    width: 10%;
+    height: 10%;
+    background-color: #66666699;
+    border-radius: 50%;
+    animation-name: creativity-box;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes creativity-box {
+    0%  {opacity:0; transform: translateX(0%);}
+    10%  {opacity:1;}
+    50%  {opacity:1}
+    100% {opacity:0; transform: translateX(500%) scale(1.2);}
+}
+
+#ergonomy {
+    width: 100vw;
+    height: 100vw;
+}
+
+#ergonomy > div {
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+#ergonomy > div > div {
+    position:absolute;
+    width: 10%;
+    height: 10%;
+    background-color: #66666699;
+    border-radius: 50%;
+    animation-name: ergonomy-box;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ergonomy-box {
+    0%  {opacity:0; transform: translateX(0%);}
+    10%  {opacity:1;}
+    50%  {opacity:1}
+    100% {opacity:0; transform: translateX(1000%);}
+}
+
+
+#affect {
+    width: 100vw;
+    height: 100vw;
+}
+
+#affect > div {
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+#affect > div > div {
+    position:absolute;
+    width:100%;
+    height:100%;
+    animation-name: affect-box;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#affect > div > div > div {
+    position:absolute;
+    top: 45%;
+    left: 45%;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #66666699;
+
+}
+
+@keyframes affect-box {
+    0%  {transform: rotate(0deg);}
+    100% {transform: rotate(360deg)}
+}
+
 
 @media ( max-width: 500px ) {
-    .concept-par {
-        font-size: 1em;
-        line-height: 2.3em;
-
-    }
 
     .half-container {
         width:100%;
@@ -184,65 +439,284 @@ body {
             <span style="font-size:10vmin">LABO</span>
             <img id="logo-image" width="17%" data-src="/images/logo.png">
         </div>
-        <h1 class="title">Potenciando al <span style="white-space: nowrap">Ser Humano</span></h1>
+        <h1 class="title">Potenciando al <span class="no-wrap">Ser Humano</span></h1>
     </div>
     <div class="brain">
         <img id="brain-image" width="75%" data-src="/images/brain.png">
     </div>
 </div>
-<div style="margin-top:75vmin; padding:1em">
+<div class="padding-box">
+    <div class="important ward" data-anim="important-anim" data-obs-thres=0.25>
+        <span class="appear">
+            Porque no podemos esperar
+            <span class="no-wrap">resultados diferentes</span>
+            si siempre hacemos
+            <span class="no-wrap">lo mismo</span>,
+        </span>
+        <span class="appear">
+            <span class="no-wrap">en <em>LABO86</em></span>
+            desarrollamos
+            <span class="no-wrap"><em>soluciones informáticas</em></span>
+        </span>
+        <span class="appear">
+            para
+            <span class="no-wrap">los problemas de</span>
+            <span class="no-wrap">productividad personal y grupal</span>,
+        </span>
+        <span class="appear">
+            <span class="no-wrap"><em>sin miedo</em> a romper</span>
+            <span class="no-wrap">los paradigmas culturales</span>
+            contemporaneos.
 
-    <div>No esperes resultados diferentes si siempre haces lo mismo</div>
-
-
-    <p>Lo más valioso es nuestra mente</p>
-
-    <h1>Porque el ser humano es primero</h1>
-    <p>Nos basamos en conocimiento académico y tratamos de validar nuestras propuestas a nivel académico (paper sobre emociones)</p>
-    <p>El ser humano tiene el potencial de ser el ente transformador por excelencia</p>
-    <p>Somos los únicos que pensamios en colonizar nuevos mundos y buscar nuevas dimensiones</p>
-
-    <p>Soluciones innovadoras a los problemas del día a día. (SOLUCIONES)</p>
-    <p>Encontrar el balance entre tecnología y arte, ideas y creencias, razones y emociones</p>
-    <p>Podemos usar la tacnologia para liberar el potencial de las personas.</p>
-    <p>Necesitamos un nuevo renacimiento, con personas llenas en espiritu</p>
-    <p>Eficiencia Mayor beneficio por menor esfuerzo</p>
-    <p>Intentamos hacer las cosas diferentes</p>
-    <p>Gestión afectiva (FILOG), ergonomía cognitiva (MIND PRINT, TORNEO, PUBLICAT), creatividad concreta(MIND PRINT, TORNEO)</p>
+        </span>
+    </div>
 </div>
-<div style="padding:10vw">
-    <h1 id="title-1" class="jumbo-title" data-anim="jumbo-title-anim">
+<div class="padding-box">
+    <div class="section-title ward" data-anim="section-title-anim" data-obs-thres=1>
+        <h2>Visión</h2>
+        <div class="sub-line"></div>
+    </div>
+    <p class="lead-par appear section-description ward" data-anim="appear-anim" data-obs-thres=1>
+        El <em>ser humano</em> es la entidad transformadora de la realidad por excelencia.
+    </p>
+    <p class="lead-par appear section-description ward" data-anim="appear-anim" data-obs-thres=1>
+        Sin embargo, nuestra capacidad trasformadora se ve mermada por las <em>actuales ineficiencias</em> en los procesos de <span class="no-wrap">toma de decisiones</span> y <span class="no-wrap">gestión del conocimiento</span>.
+    </p>
+    <p class="lead-par appear section-description ward" data-anim="appear-anim" data-obs-thres=1>
+        Creemos que con una <em>vocación científica</em> y una <em><a href="https://es.wikipedia.org/wiki/Pensamiento_sist%C3%A9mico">perspectiva holística</a></em> podemos encontrar nuevas formas de resolver estas ineficiencias y permitir a la humanidad dar un <em>nuevo salto hacia el progreso</em>.
+    </p>
+</div>
+<div class="padding-box">
+    <div class="section-title ward" data-anim="section-title-anim" data-obs-thres=1>
+        <h2>Nuestros conceptos</h2>
+        <div class="sub-line"></div>
+    </div>
+    <div class="appear section-description ward" data-anim="appear-anim" data-obs-thres=1>
+        Son la forma en se expresa <span class="no-wrap">nuestra visión</span>, ya sea en el proceso de <span class="no-wrap">ideación y desarrollo</span> de <span class="no-wrap">nuestras soluciones</span>, como en la experiencia que <span class="no-wrap">nuestros usuarios</span> tienen al utilizarlas.
+    </div>
+
+    <div style="position: relative; width: 0; height: 0; opacity:0.5; transform: translate(-50vw, -10vw)">
+    <div id="creativity">
+        <div>
+                    <div style="transform:rotate(0deg)">
+                <div style="animation-duration:9.7s"></div>
+            </div>
+                    <div style="transform:rotate(20deg)">
+                <div style="animation-duration:4.2s"></div>
+            </div>
+                    <div style="transform:rotate(40deg)">
+                <div style="animation-duration:7.7s"></div>
+            </div>
+                    <div style="transform:rotate(60deg)">
+                <div style="animation-duration:9.1s"></div>
+            </div>
+                    <div style="transform:rotate(80deg)">
+                <div style="animation-duration:4.4s"></div>
+            </div>
+                    <div style="transform:rotate(100deg)">
+                <div style="animation-duration:5.6s"></div>
+            </div>
+                    <div style="transform:rotate(120deg)">
+                <div style="animation-duration:4.0s"></div>
+            </div>
+                    <div style="transform:rotate(140deg)">
+                <div style="animation-duration:5.7s"></div>
+            </div>
+                    <div style="transform:rotate(160deg)">
+                <div style="animation-duration:7.4s"></div>
+            </div>
+                    <div style="transform:rotate(180deg)">
+                <div style="animation-duration:4.7s"></div>
+            </div>
+                    <div style="transform:rotate(200deg)">
+                <div style="animation-duration:9.2s"></div>
+            </div>
+                    <div style="transform:rotate(220deg)">
+                <div style="animation-duration:8.2s"></div>
+            </div>
+                    <div style="transform:rotate(240deg)">
+                <div style="animation-duration:5.9s"></div>
+            </div>
+                    <div style="transform:rotate(260deg)">
+                <div style="animation-duration:3.2s"></div>
+            </div>
+                    <div style="transform:rotate(280deg)">
+                <div style="animation-duration:4.2s"></div>
+            </div>
+                    <div style="transform:rotate(300deg)">
+                <div style="animation-duration:5.2s"></div>
+            </div>
+                    <div style="transform:rotate(320deg)">
+                <div style="animation-duration:5.0s"></div>
+            </div>
+                    <div style="transform:rotate(340deg)">
+                <div style="animation-duration:8.6s"></div>
+            </div>
+                </div>
+    </div>
+    </div>
+
+    <h1 id="title-1" class="jumbo-title ward" data-anim="jumbo-title-anim" data-obs-thres=1>
         <div>Creatividad</div>
         <div>Concreta</div>
     </h1>
-    <div class="appear" style="display:flex;justify-content:right" data-anim="appear-anim">
+    <div class="appear ward" style="display:flex;justify-content:right" data-anim="appear-anim" data-obs-thres=0.25>
         <div class="half-container">
-            <p class="concept-par">Herramientas y sistema para la toma de decisión y convergencia de ideas (TORNEO)</p>
+            <p class="concept-par">
+                <strong>La mente humana es el único computador que imagina</strong>.
+                Para poder aprovecharla, eliminamos la ambigüedad de los procesos creativos y de ideación,
+                proponiendo herramientas eficientes, ágiles y medibles,
+                que ofrecen resultados en procesos de innovación, desarrollo y diseño.
+            </p>
         </div>
     </div>
 
-    <h1 id="title-2" class="jumbo-title" data-anim="jumbo-title-anim">
+    <div style="position: relative; width: 0; height: 0; opacity:0.5; transform: translate(50vw, -10vw)">
+        <div id="affect">
+            <div>
+                                    <div style="animation-duration:7s;">
+                                                <div style="transform:translate(241%, 0%)"></div>
+                    </div>
+                                    <div style="animation-duration:17s;">
+                                                <div style="transform:translate(280%, 162%)"></div>
+                    </div>
+                                    <div style="animation-duration:15s;">
+                                                <div style="transform:translate(160%, 277%)"></div>
+                    </div>
+                                    <div style="animation-duration:20s;">
+                                                <div style="transform:translate(0%, 206%)"></div>
+                    </div>
+                                    <div style="animation-duration:10s;">
+                                                <div style="transform:translate(-229%, 397%)"></div>
+                    </div>
+                                    <div style="animation-duration:12s;">
+                                                <div style="transform:translate(-208%, 120%)"></div>
+                    </div>
+                                    <div style="animation-duration:12s;">
+                                                <div style="transform:translate(-275%, 0%)"></div>
+                    </div>
+                                    <div style="animation-duration:18s;">
+                                                <div style="transform:translate(-398%, -230%)"></div>
+                    </div>
+                                    <div style="animation-duration:10s;">
+                                                <div style="transform:translate(-173%, -300%)"></div>
+                    </div>
+                                    <div style="animation-duration:5s;">
+                                                <div style="transform:translate(-0%, -343%)"></div>
+                    </div>
+                                    <div style="animation-duration:5s;">
+                                                <div style="transform:translate(191%, -331%)"></div>
+                    </div>
+                                    <div style="animation-duration:11s;">
+                                                <div style="transform:translate(246%, -142%)"></div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+    <h1 id="title-2" class="jumbo-title ward" data-anim="jumbo-title-anim" data-obs-thres=1>
         <div>Productividad</div>
         <div>Afectiva</div>
     </h1>
-    <div class="appear" data-anim="appear-anim">
+    <div class="appear ward" data-anim="appear-anim" data-obs-thres=0.25>
         <div class="half-container">
-            <p class="concept-par">Exploramos nuevas formas de productividad de personas y equipos basadas en información emocional (FILOG, MINDPRINT)</p>
+            <p class="concept-par">
+                <strong>Las emociones son parte importante de la cognición</strong>. Ellas son la fuente de lo que queremos cambiar y la recompensa sobre lo hacemos bien.
+                Por esta razón, aplicamos conceptos de las <a class="no-wrap" href="https://en.wikipedia.org/wiki/Affective_science">ciencias afectivas</a>
+                para proveer retroalimentación emocional,
+                permitiendo una nueva forma de análisis de los procesos productivos.
         </div>
     </div>
 
-    <h1 id="title-3" class="jumbo-title" data-anim="jumbo-title-anim">
+    <div style="position: relative; width: 0; height: 0; opacity:0.5; transform: translate(-50vw, -10vw)">
+        <div id="ergonomy">
+            <div>
+                                    <div style="top:0%;animation-duration:7.9s"></div>
+                                    <div style="top:5%;animation-duration:5.7s"></div>
+                                    <div style="top:10%;animation-duration:10.1s"></div>
+                                    <div style="top:15%;animation-duration:5.2s"></div>
+                                    <div style="top:20%;animation-duration:6.9s"></div>
+                                    <div style="top:25%;animation-duration:7.2s"></div>
+                                    <div style="top:30%;animation-duration:6.3s"></div>
+                                    <div style="top:35%;animation-duration:3.0s"></div>
+                                    <div style="top:40%;animation-duration:6.9s"></div>
+                                    <div style="top:45%;animation-duration:9.7s"></div>
+                                    <div style="top:50%;animation-duration:8.7s"></div>
+                                    <div style="top:55%;animation-duration:10.9s"></div>
+                                    <div style="top:60%;animation-duration:7.0s"></div>
+                                    <div style="top:65%;animation-duration:5.3s"></div>
+                                    <div style="top:70%;animation-duration:5.1s"></div>
+                                    <div style="top:75%;animation-duration:9.1s"></div>
+                                    <div style="top:80%;animation-duration:9.7s"></div>
+                                    <div style="top:85%;animation-duration:3.6s"></div>
+                                    <div style="top:90%;animation-duration:10.7s"></div>
+                                    <div style="top:95%;animation-duration:5.6s"></div>
+                            </div>
+        </div>
+    </div>
+
+    <h1 id="title-3" class="jumbo-title ward" data-anim="jumbo-title-anim" data-obs-thres=1>
         <div>Ergonomía</div>
         <div>Cognitiva</div>
     </h1>
-    <div class="appear" style="display:flex;justify-content:right" data-anim="appear-anim">
+    <div class="appear ward" style="display:flex;justify-content:right" data-anim="appear-anim" data-obs-thres=0.25>
         <div class="half-container">
-            <p class="concept-par">Nuestro sistemas estan hechos papara las personas y no las personas para lo sistemas. Recomendacional</p>
-            <p>Hacemos concreto lo subjetivo (MINDPRINT, FILOG)</p>
-            <p>Publicat</p>
+            <p class="concept-par">
+                <strong>Los sistemas están hecho para las personas y no las personas para los sistemas</strong>.
+                Por eso, utilizamos resultados de la <a class="no-wrap" href="https://en.wikipedia.org/wiki/Human_factors_and_ergonomics">ingeniería de factores humanos</a>
+                para reducir la carga cognitiva de los procesos,
+                entregando experiencias de usuario superiores.
         </div>
     </div>
 </div>
+<div class="padding-box">
+    <div class="section-title ward" style="margin-bottom:5em" data-anim="section-title-anim" data-obs-thres=1>
+        <h2>Equipo</h2>
+        <div class="sub-line"></div>
+    </div>
+    <div class="team-member">
+        <div class="team-image">
+            <img src="/images/team/edwin/portrait.jpg">
+            <img src="/images/team/edwin/working.jpg">
+        </div>
+    <div class="appear ward concept-par" style="text-align:center;padding-left:1em;padding-right:1em;" data-anim="appear-anim" data-obs-thres=1>
+        <h3><em>Edwin Rodríguez-León</em></h3>
+        <ul style="padding:0">
+            <li><strong>Fundador</strong></li>
+            <li>Ingeniero Informático</li>
+            <li>Magíster(c) en Innovación y <span class="no-wrap">Emprendimiento Tecnológico</span></li>
+        </ul>
+    </div>
+    </div>
+</div>
+<div class="padding-box">
+    <div class="section-title ward" data-anim="section-title-anim" data-obs-thres=1>
+        <h2>Contacto</h2>
+        <div class="sub-line"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;text-align:center">
+        <div style="margin-bottom:2em" class="appear section-description ward" data-anim="appear-anim" data-obs-thres=1>
+            Contactanos a nuestro correo electrónico:
+        </div>
+        <a style="font-size:max(2em,3vw);margin-bottom:3em" href="mailto:contacto@labo86.cl">contacto@labo86.cl</a>
+        <div style="margin-bottom:2em" class="appear section-description ward" data-anim="appear-anim" data-obs-thres=1>
+            Y, siguenos nuestras redes sociales para estar al tanto de nuestro últimos avances.
+        </div>
+        <a style="font-size:max(2em,3vw)" href="https://www.facebook.com/labo86">Facebook</a>
+        <a style="font-size:max(2em,3vw)" href="">Instagram</a>
+    </div>
+</div>
+<footer class="padding-box">
+    <div class="section-title ward" data-anim="section-title-anim" data-obs-thres=1>
+        <div class="sub-line" style="height:2px"></div>
+    </div>
+    <div style="margin-top:4em;display:flex;flex-direction:column;text-align:center;justify-content:center">
+        <div>
+        <img id="logo-image" width="70" src="/images/logo.png">
+        </div>
+        <div style="font-size:1.2em;font-weight:bold;margin-top:0.6em">Labo86 SpA © 2020</div>
+    </div>
+</footer>
 <script>
     let canvas = new class {
         constructor() {
@@ -356,25 +830,21 @@ function play_animation() {
 }
 
 function observeView(element) {
+    let threshold = parseFloat(element.getAttribute('data-obs-thres'));
     let observer = new IntersectionObserver(function(entries) {
         for ( let entry of entries ) {
-            if ( entry.isIntersecting === true ) {
+            if ( entry.isIntersecting ) {
                 let anim = entry.target.getAttribute('data-anim');
                 entry.target.classList.add(anim);
             }
         }
-    }, { threshold: [1] });
+    }, { threshold: [threshold] });
     observer.observe(element);
     return observer;
 }
-for ( let element of document.querySelectorAll('.appear') ) {
+for ( let element of document.querySelectorAll('.ward') ) {
     observeView(element);
 }
-
-
-observeView(document.querySelector('#title-1'));
-observeView(document.querySelector('#title-2'));
-observeView(document.querySelector('#title-3'));
 
 </script>
 </body>
